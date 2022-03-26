@@ -32,6 +32,7 @@ object WallService {
     fun showLast() {
         println(posts.last())
     }
+
     fun giveLast(): Post {
 //        val postLast : Post = posts.last()
         return posts.last()
