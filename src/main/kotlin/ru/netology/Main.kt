@@ -25,6 +25,7 @@ fun main () {
         isPinned= true,
         markedAsAds= true,
         postponedId = 1
+
     )
 
     WallService.add(secondOrigin)

@@ -20,10 +20,34 @@ data class Post(
     val isPinned: Boolean= false,
     val markedAsAds: Boolean= false,
     val postponedId: Int,
-){
+ //   val attachments: Attachment
+)
+
+//interface Attachment{
+//    val url :String
+//}
+//
+//class PhotoAttachments() : Attachment{
+//override val url: String = ""
+//}
+//
+//class VideoAttachments() :Attachment{
+//    override val url: String = ""
+//}
+//
+//class AudioAttachments() :Attachment{
+//    override val url: String = ""
+//}
+//
+//class DocAttachments() :Attachment{
+//    override val url: String = ""
+//}
+//
+//class PostedPhotoAttachments() :Attachment{
+//    override val url: String = ""
+//}
 
 
-}
 
 //class Likes (
 //    val userLikes: Boolean,

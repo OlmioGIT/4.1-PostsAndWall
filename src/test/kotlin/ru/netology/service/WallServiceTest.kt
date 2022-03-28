@@ -164,7 +164,7 @@ class WallServiceTest {
             postponedId = 1
         )
         WallService.update(secondMaster)
-
+        Assert.assertEquals(secondOrigin.authorId, WallService.giveLast().authorId)
     }
 
     @org.junit.Test
