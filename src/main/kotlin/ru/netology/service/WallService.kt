@@ -1,9 +1,23 @@
 package ru.netology.service
 
+import ru.netology.data.Comment
 import ru.netology.data.Post
+import ru.netology.data.Comments
 
 object WallService {
     var posts = emptyArray<Post>()
+    var comments = emptyArray<Comment>()
+
+    fun findById(id:Long) : Post?{
+        for (post in WallService.posts) {
+            if (post.id == id){
+                return post
+            }
+        }
+        return null
+    }
+
+
     open var i : Int = 0
 
     fun add (post:Post ) :Post{
@@ -37,6 +51,23 @@ object WallService {
 //        val postLast : Post = posts.last()
         return posts.last()
     }
+
+    class CommentDontAddException(message: String): NullPointerException(message)
+
+
+
+    fun createComment (comment: Comment) {
+
+        for ((index, storePost: Post) in posts.withIndex())
+
+        if (comment.PostId == storePost.id) {
+            comments += comment
+        } else (
+            throw CommentDontAddException("Не нашлось поста для этого коментария.")
+        )
+    }
 }
+
+
 
 

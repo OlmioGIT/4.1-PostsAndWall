@@ -1,5 +1,7 @@
 package ru.netology.data
 
+import ru.netology.service.WallService
+
 data class Post(
     val id: Long = 0,
     val authorId: Int,
@@ -104,8 +106,19 @@ class Donut (
     val editMode : String
 )
 
+class Comment (
+    val authorId:Long,
+    val PostId: Long,
+    val from_group: Int = 0,
+    val message: String?,
+    val replyToUser:Long?,
+    val replyToComment: Long?,
+    val attachments: Attachment?,
+    val stickerId: Long?,
+)
+
 class Comments (
-    val count: Int,
+    val count: Long,
     val canPost: Boolean,
     val groupsCanPost: Boolean,
     val canClose: Boolean,
@@ -117,5 +130,6 @@ class Geo  (
     val coordinates: String,
     val place : Boolean,
 )
+
 
 

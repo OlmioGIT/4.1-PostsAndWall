@@ -70,8 +70,24 @@ fun main () {
         postponedId = 1,
         )
 
+    val newComment = Comment(
+        authorId = 20,
+        PostId = 2,
+        from_group = 0,
+        message = "Ты не прав...",
+        replyToUser = null,
+        replyToComment= null,
+        attachments = PhotoAttachments(url = "",id =12,ownerId = 15,albumId = 12, updateUserId = 121),
+        stickerId = null
+        )
+
+
     WallService.update(secondMaster)
     WallService.showLast()
+
+    WallService.createComment(newComment)
+
+
 
 }
 
