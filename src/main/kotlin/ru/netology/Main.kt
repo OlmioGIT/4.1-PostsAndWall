@@ -73,7 +73,7 @@ fun main () {
     val newComment = Comment(
         authorId = 20,
         PostId = 2,
-        from_group = 0,
+        fromGroup = 0,
         message = "Ты не прав...",
         replyToUser = null,
         replyToComment= null,

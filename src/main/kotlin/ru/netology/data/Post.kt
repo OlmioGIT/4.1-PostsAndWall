@@ -109,7 +109,7 @@ class Donut (
 class Comment (
     val authorId:Long,
     val PostId: Long,
-    val from_group: Int = 0,
+    val fromGroup: Int = 0,
     val message: String?,
     val replyToUser:Long?,
     val replyToComment: Long?,

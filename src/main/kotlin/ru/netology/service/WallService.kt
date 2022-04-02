@@ -1,3 +1,5 @@
+@file:Suppress("UNUSED_VALUE")
+
 package ru.netology.service
 
 import ru.netology.data.Comment
@@ -7,9 +9,10 @@ import ru.netology.data.Comments
 object WallService {
     var posts = emptyArray<Post>()
     var comments = emptyArray<Comment>()
+    var i : Int = 0
 
     fun findById(id:Long) : Post?{
-        for (post in WallService.posts) {
+        for (post in posts) {
             if (post.id == id){
                 return post
             }
@@ -18,14 +21,14 @@ object WallService {
     }
 
 
-    open var i : Int = 0
+
 
     fun add (post:Post ) :Post{
         if (posts.isEmpty()){
             posts+= post
         }
         if (posts.isNotEmpty()) {
-            for ((index, storePost: Post) in posts.withIndex())
+            for (storePost: Post in posts)
                 if (post.id == storePost.id) i += 1
         }
         if (i<posts.size) posts+= post
@@ -57,14 +60,18 @@ object WallService {
 
 
     fun createComment (comment: Comment) {
+        var toThrow = true
 
-        for ((index, storePost: Post) in posts.withIndex())
-
-        if (comment.PostId == storePost.id) {
-            comments += comment
-        } else (
+        for (storePost: Post in posts) {
+            if (comment.PostId == storePost.id) {
+                toThrow = false
+                comments += comment
+            }
+        }
+        if (toThrow) {
             throw CommentDontAddException("Не нашлось поста для этого коментария.")
-        )
+        }
+        toThrow = true
     }
 }
 
